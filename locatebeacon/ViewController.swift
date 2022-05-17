@@ -60,6 +60,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate{
             }
         }
     }
+    
+    func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon],  in region: CLBeaconRegion){
+        if let beacon = beacons.first {
+            update(distance: beacon.proximity)
+        }else{
+            update(distance: .unknown)
+        }
+    }
+    
 }
 
 
